@@ -31,8 +31,14 @@
                 </ul>
             </aside>
 
+            @if (config('site.static'))
+            {{-- Static hosting (GitHub Pages): no server, so the form sends the message through WhatsApp. --}}
+            <form class="form" data-whatsapp="{{ config('company.whatsapp') }}">
+                <p class="form__note">@include('partials.whatsapp-icon') Sending opens WhatsApp with your message ready to send.</p>
+            @else
             <form class="form" method="POST" action="{{ route('contact.store') }}">
                 @csrf
+            @endif
                 @if (session('success'))
                     <div class="alert alert--ok" role="status">{{ session('success') }}</div>
                 @endif

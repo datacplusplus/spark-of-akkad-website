@@ -216,3 +216,5 @@ p { margin: 0 0 1em; }
 @media (prefers-reduced-motion: reduce) {
     *, *::before { animation: none !important; transition: none !important; }
 }
+.form__note { display: flex; align-items: center; gap: .5em; margin: 0; padding: .8em 1em; border-radius: 10px; background: #e6f8ee; color: #136c3a; font-size: .92rem; }
+.form__note .wa-icon { width: 1.3em; height: 1.3em; color: var(--wa-deep); }
