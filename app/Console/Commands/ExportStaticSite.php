@@ -36,7 +36,7 @@ class ExportStaticSite extends Command
             $response = $kernel->handle(Request::create($uri));
 
             if ($response->getStatusCode() !== 200) {
-                $this->error("{$uri} returned {$response->getStatusCode()}");
+                $this->error("{$uri} returned {$response->getStatusCode()}: ".($response->exception?->getMessage() ?? ""));
 
                 return self::FAILURE;
             }

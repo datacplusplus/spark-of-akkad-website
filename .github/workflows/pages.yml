@@ -35,6 +35,8 @@ jobs:
           APP_URL: ${{ steps.pages.outputs.base_url }}
           APP_ENV: production
           APP_DEBUG: 'false'
+          SESSION_DRIVER: array
+          CACHE_STORE: array
         run: |
           cp .env.example .env
           php artisan key:generate --force
