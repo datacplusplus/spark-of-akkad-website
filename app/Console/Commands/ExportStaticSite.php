@@ -31,6 +31,7 @@ class ExportStaticSite extends Command
         // Static mode: the contact form sends via WhatsApp instead of posting to the server.
         config(['site.static' => true]);
         URL::forceRootUrl(rtrim(config('app.url'), '/'));
+        URL::forceScheme(parse_url(config('app.url'), PHP_URL_SCHEME) ?: 'https');
 
         foreach ($this->pages as $uri => $file) {
             $response = $kernel->handle(Request::create($uri));
